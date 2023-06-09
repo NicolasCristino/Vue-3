@@ -1,12 +1,6 @@
 <template>
     <div>
-        <div 
-            v-for="obj in todos"
-            v-bind:key="obj.id"
-            class="todos_list"
-        >
-            {{ obj.title }} 
-        </div>
+        <img v-bind:src="imagem" v-bind:alt="fotoDesc">
     </div>
 </template>
 
@@ -15,6 +9,8 @@
         name: 'App',
         data(){
             return{
+                fotoDesc: 'ImagemPlaceholder',
+                imagem: 'https://placehold.co/600x400',
                 todos:[
                     {
                         "userId": 1,
