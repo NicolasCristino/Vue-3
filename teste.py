@@ -1,2 +1,1 @@
 print('gato')
-print('vaca')
