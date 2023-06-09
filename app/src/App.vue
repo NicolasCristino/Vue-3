@@ -1,33 +1,65 @@
 <template>
-  <TheHeader 
-    v-show="showHeader"
-  />
-  <div>
-    Olá {{ firstname }} {{ lastname }} você tem permissões de
-  </div>
-  <div class="acess" v-if="acessLevel === 'Admin'">Admin</div>
-  <div class="acess" v-else-if="acessLevel === 'Marketing'">Marketing</div>
-  <div class="acess" v-else>Vendas</div>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+        <div>
+            Two-way data binding
+            v-model -> formulários
+        </div>
+        <br>
+
+        <div class="">
+            <label for="">Nome</label> <br>
+            <input type="text" v-model="name">
+            <br><br>
+            {{ name }}
+        </div>
+        
+        <br><br>
+
+        <div>
+          <label for="">Sports</label> <br>
+          <select v-model="sports">
+            <option value="">Selecione</option>
+            <option value="futebol">Futebol</option>
+            <option value="basquete">Basquete</option>
+            <option value="volei">Volei</option>
+          </select> <br> <br>
+          {{ sports }}
+        </div>
+
+        <br><br>
+
+        <div>
+          <label for="">Newsletter</label> <br>
+          <input type="radio" value="Sim" v-model="newsletter"> Sim
+          <input type="radio" value="Não" v-model="newsletter"> Não
+          <br> <br>
+          {{ newsletter }}
+        </div>
+
+        <br><br>
+
+        <div>
+          <label for="">Newsletter</label> <br>
+          <input type="checkbox" value="Amarelo" v-model="checkbox"> Amarelo
+          <input type="checkbox" value="Azul" v-model="checkbox"> Azul
+          <input type="checkbox" value="Vermelho" v-model="checkbox"> Vermelho
+          <br> <br>
+          {{ checkbox }}
+        </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue';
-import TheHeader from './components/TheHeader.vue';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld, TheHeader
   },
   data() {
     return{
-        showHeader: true,
-        firstname: 'Robb',
-        lastname: 'Stark',
-        acessLevel: 'Vendas',
-    }
+      name:'',
+      sports: '',
+      newsletter: '',
+      checkbox: []
+          }
   }
 }
 </script>
