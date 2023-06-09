@@ -1,50 +1,21 @@
 <template>
         <div>
-            Two-way data binding
-            v-model -> formulários
+          <button @click="onclick">
+            Enviar
+          </button>
         </div>
-        <br>
 
-        <div class="">
-            <label for="">Nome</label> <br>
-            <input type="text" v-model="name">
-            <br><br>
-            {{ name }}
+        <div @mouseover="onMouseOver">
+          Passa o mouse aqui
         </div>
-        
         <br><br>
 
-        <div>
-          <label for="">Sports</label> <br>
-          <select v-model="sports">
-            <option value="">Selecione</option>
-            <option value="futebol">Futebol</option>
-            <option value="basquete">Basquete</option>
-            <option value="volei">Volei</option>
-          </select> <br> <br>
-          {{ sports }}
-        </div>
-
+        <form action="" @submit.once="onSubmit">
+          <button type="submit">Enviar</button>
+        </form>
         <br><br>
 
-        <div>
-          <label for="">Newsletter</label> <br>
-          <input type="radio" value="Sim" v-model="newsletter"> Sim
-          <input type="radio" value="Não" v-model="newsletter"> Não
-          <br> <br>
-          {{ newsletter }}
-        </div>
-
-        <br><br>
-
-        <div>
-          <label for="">Newsletter</label> <br>
-          <input type="checkbox" value="Amarelo" v-model="checkbox"> Amarelo
-          <input type="checkbox" value="Azul" v-model="checkbox"> Azul
-          <input type="checkbox" value="Vermelho" v-model="checkbox"> Vermelho
-          <br> <br>
-          {{ checkbox }}
-        </div>
+        <input type="text" @keyup="onKeyup">
 </template>
 
 <script>
@@ -55,11 +26,22 @@ export default {
   },
   data() {
     return{
-      name:'',
-      sports: '',
-      newsletter: '',
-      checkbox: []
+
           }
+  },
+  methods:{
+    onclick() {
+      alert('click')
+    },
+    onMouseOver($evt){
+      console.log('Hoverizou', $evt)
+    },
+    onSubmit(){
+      console.log('Submitou')
+    },
+    onKeyup($evt){
+      console.log('Teclou meu mano', $evt)
+    }
   }
 }
 </script>
