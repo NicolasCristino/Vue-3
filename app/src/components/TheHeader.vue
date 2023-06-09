@@ -12,6 +12,7 @@
 
 <style>
     .header{
-        
+        background: black;
+        color: white;
     }
 </style>

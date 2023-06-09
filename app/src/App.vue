@@ -1,5 +1,13 @@
 <template>
-  <TheHeader/>
+  <TheHeader 
+    v-show="showHeader"
+  />
+  <div>
+    Olá {{ firstname }} {{ lastname }} você tem permissões de
+  </div>
+  <div class="acess" v-if="acessLevel === 'Admin'">Admin</div>
+  <div class="acess" v-else-if="acessLevel === 'Marketing'">Marketing</div>
+  <div class="acess" v-else>Vendas</div>
   <img alt="Vue logo" src="./assets/logo.png">
   <HelloWorld msg="Welcome to Your Vue.js App"/>
 </template>
@@ -12,6 +20,14 @@ export default {
   name: 'App',
   components: {
     HelloWorld, TheHeader
+  },
+  data() {
+    return{
+        showHeader: true,
+        firstname: 'Robb',
+        lastname: 'Stark',
+        acessLevel: 'Vendas',
+    }
   }
 }
 </script>
@@ -24,5 +40,9 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+.acess{
+  color: green;
+  font-weight: bolder;
 }
 </style>
