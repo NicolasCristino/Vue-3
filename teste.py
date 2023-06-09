@@ -1,1 +1,2 @@
 print('gato')
+print('vaca')
