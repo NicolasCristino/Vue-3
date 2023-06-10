@@ -17,7 +17,8 @@
     }
 </script>
 
-<style>
+
+<style scoped>
 
 header{
     background-color: blueviolet;

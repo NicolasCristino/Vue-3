@@ -1,18 +1,13 @@
 <template>
-  <TheHeader>
-      <template v-slot:title>
-        <h1>Home</h1>
-      </template>
-      <template v-slot:description>
-        <p>Schwasneags</p>
-      </template>
-    Doggfather
-  </TheHeader>
-
+  <div>
+    <HelloWorld></HelloWorld> <!--Componente manipulado por CSS de escopo-->
+    <BaseCard></BaseCard> <!--Componente manipulado por CSS global em ./assets/css/style.css-->
+  </div>
 </template>
 
 <script>
-import TheHeader from './components/TheHeader.vue'
+import BaseCard from './components/BaseCard.vue'
+import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   mounted(){
@@ -20,7 +15,7 @@ export default {
   },
   name: 'App',
   components: {
-    TheHeader
+    BaseCard, HelloWorld
   },
   data() {
     return{
