@@ -1,13 +1,13 @@
 <template>
-  <TheHeader v-show="showHeader"/>
-        <div>
-          <h2>Ola</h2>
-          {{ name }}
-        </div> <br>
-
-        <button @click="showHeader = !showHeader">
-          Mostrar ou esconder Header
-        </button>
+  <TheHeader>
+      <template v-slot:title>
+        <h1>Home</h1>
+      </template>
+      <template v-slot:description>
+        <p>Schwasneags</p>
+      </template>
+    Doggfather
+  </TheHeader>
 
 </template>
 
@@ -15,6 +15,9 @@
 import TheHeader from './components/TheHeader.vue'
 
 export default {
+  mounted(){
+    console.log(this.$slots)
+  },
   name: 'App',
   components: {
     TheHeader
@@ -24,43 +27,6 @@ export default {
       name: 'Robb',
       showHeader: true,
     }
-  },
-
-  // $el é a raíz do componente, o elemento child do template
-  beforeCreate(){
-    console.log('beforeCreate')
-    console.log('Estado:',this.name)
-    console.log('DOM:',this.$el)
-  },
-
-  created(){
-    console.log('created')
-    console.log('Estado:',this.name)
-    console.log('DOM:',this.$el)
-  },
-
-  beforeMount(){
-    console.log('beforeMount')
-    console.log('Estado:',this.name)
-    console.log('DOM:',this.$el)
-  },
-
-  mounted(){
-    console.log('mounted')
-    console.log('Estado:',this.name)
-    console.log('DOM:',this.$el)
-  },
-
-  beforeUnmount(){
-    console.log('beforeUnmount')
-    console.log('Estado:',this.name)
-    console.log('DOM:',this.$el)
-  },
-
-  unmounted(){
-    console.log('unmounted')
-    console.log('Estado:',this.name)
-    console.log('DOM:',this.$el)
   },
 
 
