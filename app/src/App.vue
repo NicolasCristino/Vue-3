@@ -1,18 +1,15 @@
 <template>
         <div>
-          {{ fullName }} <br> <br>
+            <input type="text" v-model="name">
+            <br>
+            {{ name }}
         </div>
-
-        <h2>Todos em aberto</h2>
-
-        <div v-for="todo in uncompletedTodos" :key="todo.id">
-           {{ todo.title }} <span>{{ todo.completed }}</span>
-        </div>
-
-        <h2>Todos completas</h2>
-
-        <div v-for="todo in completedTodos" :key="todo.id">
-           {{ todo.title }} <span>{{ todo.completed }}</span>
+        <div>
+            <input type="text" v-model="user.first_name">
+            <br>
+            <input type="text" v-model="user.last_name">
+            <br>
+            {{ user.first_name }} {{ user.last_name }}
         </div>
 
 </template>
@@ -25,66 +22,36 @@ export default {
   },
   data() {
     return{
+      name: '',
       user: {
-        first_name: 'Robb',
-        last_name: 'Stark',
+        first_name: '',
+        last_name: '',
       },
-      todos: [
-          {
-            "userId": 1,
-            "id": 1,
-            "title": "delectus aut autem",
-            "completed": false
-          },
-          {
-            "userId": 1,
-            "id": 2,
-            "title": "quis ut nam facilis et officia qui",
-            "completed": false
-          },
-          {
-            "userId": 1,
-            "id": 3,
-            "title": "fugiat veniam minus",
-            "completed": false
-          },
-          {
-            "userId": 1,
-            "id": 4,
-            "title": "et porro tempora",
-            "completed": true
-          },
-          {
-            "userId": 1,
-            "id": 5,
-            "title": "laboriosam mollitia et enim quasi adipisci quia provident illum",
-            "completed": false
-          },
-          {
-            "userId": 1,
-            "id": 6,
-            "title": "laboriosam mollitia et enim quasi adipisci quia provident illum",
-            "completed": true
-          }
-        ]
     }
   },
   methods:{
+    saveUserName(){
+      console.log('Ajax'); 
+      console.log(this.name);
+    }
   },
 
   computed: {
-    fullName(){
-      return `${this.user.first_name} ${this.user.last_name}`
-    },
+  },
 
-    uncompletedTodos(){
-      return this.todos.filter(todo => !todo.completed);
+  watch: {
+    name(value) {
+      if(value.length >= 3){
+        this.saveUserName()
+      }
     },
-
-    completedTodos(){
-      return this.todos.filter(todo => todo.completed);
-    },
-  }
+    user: {
+      handler(){
+        console.log('User alterado');
+      },
+      deep: true
+    }
+  },
 }
 </script>
 
