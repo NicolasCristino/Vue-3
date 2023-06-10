@@ -1,21 +1,20 @@
 <template>
         <div>
-          <button @click="onclick">
-            Enviar
-          </button>
+          {{ fullName }} <br> <br>
         </div>
 
-        <div @mouseover="onMouseOver">
-          Passa o mouse aqui
+        <h2>Todos em aberto</h2>
+
+        <div v-for="todo in uncompletedTodos" :key="todo.id">
+           {{ todo.title }} <span>{{ todo.completed }}</span>
         </div>
-        <br><br>
 
-        <form action="" @submit.once="onSubmit">
-          <button type="submit">Enviar</button>
-        </form>
-        <br><br>
+        <h2>Todos completas</h2>
 
-        <input type="text" @keyup="onKeyup">
+        <div v-for="todo in completedTodos" :key="todo.id">
+           {{ todo.title }} <span>{{ todo.completed }}</span>
+        </div>
+
 </template>
 
 <script>
@@ -26,22 +25,65 @@ export default {
   },
   data() {
     return{
-
+      user: {
+        first_name: 'Robb',
+        last_name: 'Stark',
+      },
+      todos: [
+          {
+            "userId": 1,
+            "id": 1,
+            "title": "delectus aut autem",
+            "completed": false
+          },
+          {
+            "userId": 1,
+            "id": 2,
+            "title": "quis ut nam facilis et officia qui",
+            "completed": false
+          },
+          {
+            "userId": 1,
+            "id": 3,
+            "title": "fugiat veniam minus",
+            "completed": false
+          },
+          {
+            "userId": 1,
+            "id": 4,
+            "title": "et porro tempora",
+            "completed": true
+          },
+          {
+            "userId": 1,
+            "id": 5,
+            "title": "laboriosam mollitia et enim quasi adipisci quia provident illum",
+            "completed": false
+          },
+          {
+            "userId": 1,
+            "id": 6,
+            "title": "laboriosam mollitia et enim quasi adipisci quia provident illum",
+            "completed": true
           }
+        ]
+    }
   },
   methods:{
-    onclick() {
-      alert('click')
+  },
+
+  computed: {
+    fullName(){
+      return `${this.user.first_name} ${this.user.last_name}`
     },
-    onMouseOver($evt){
-      console.log('Hoverizou', $evt)
+
+    uncompletedTodos(){
+      return this.todos.filter(todo => !todo.completed);
     },
-    onSubmit(){
-      console.log('Submitou')
+
+    completedTodos(){
+      return this.todos.filter(todo => todo.completed);
     },
-    onKeyup($evt){
-      console.log('Teclou meu mano', $evt)
-    }
   }
 }
 </script>
