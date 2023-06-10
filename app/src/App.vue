@@ -1,58 +1,82 @@
 <template>
+  <TheHeader v-show="showHeader"/>
         <div>
-            <input type="text" v-model="name">
-            <br>
-            {{ name }}
-        </div>
-        <div>
-            <input type="text" v-model="user.first_name">
-            <br>
-            <input type="text" v-model="user.last_name">
-            <br>
-            {{ user.first_name }} {{ user.last_name }}
-        </div>
+          <h2>Ola</h2>
+          {{ name }}
+        </div> <br>
+
+        <button @click="showHeader = !showHeader">
+          Mostrar ou esconder Header
+        </button>
 
 </template>
 
 <script>
+import TheHeader from './components/TheHeader.vue'
 
 export default {
   name: 'App',
   components: {
+    TheHeader
   },
   data() {
     return{
-      name: '',
-      user: {
-        first_name: '',
-        last_name: '',
-      },
+      name: 'Robb',
+      showHeader: true,
     }
   },
+
+  // $el é a raíz do componente, o elemento child do template
+  beforeCreate(){
+    console.log('beforeCreate')
+    console.log('Estado:',this.name)
+    console.log('DOM:',this.$el)
+  },
+
+  created(){
+    console.log('created')
+    console.log('Estado:',this.name)
+    console.log('DOM:',this.$el)
+  },
+
+  beforeMount(){
+    console.log('beforeMount')
+    console.log('Estado:',this.name)
+    console.log('DOM:',this.$el)
+  },
+
+  mounted(){
+    console.log('mounted')
+    console.log('Estado:',this.name)
+    console.log('DOM:',this.$el)
+  },
+
+  beforeUnmount(){
+    console.log('beforeUnmount')
+    console.log('Estado:',this.name)
+    console.log('DOM:',this.$el)
+  },
+
+  unmounted(){
+    console.log('unmounted')
+    console.log('Estado:',this.name)
+    console.log('DOM:',this.$el)
+  },
+
+
   methods:{
-    saveUserName(){
-      console.log('Ajax'); 
-      console.log(this.name);
-    }
+
   },
 
   computed: {
   },
 
   watch: {
-    name(value) {
-      if(value.length >= 3){
-        this.saveUserName()
-      }
-    },
-    user: {
-      handler(){
-        console.log('User alterado');
-      },
-      deep: true
-    }
+
   },
+
 }
+
 </script>
 
 <style>
