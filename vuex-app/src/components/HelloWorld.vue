@@ -42,6 +42,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+h2{
+  color: black;
+}
 h3 {
   margin: 40px 0 0;
 }
