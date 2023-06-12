@@ -2,20 +2,14 @@
   <nav>
     <router-link to="/">Home</router-link> |
     <router-link to="/servicos">Serviços</router-link> |
-    <router-link :to="objeto">Objeto</router-link> |
+    <router-link to="/usuarios/10">Usuario</router-link> |
     <router-link to="/about">About</router-link>
   </nav>
   <router-view/>
 </template>
 
 <script>
-  export default{
-    data(){
-      return {
-        objeto: { name: 'objetos'}
-      }
-    }
-  }
+
 </script>
 
 <style>
@@ -23,7 +17,7 @@
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  text-align: start;
   color: #2c3e50;
 }
 
