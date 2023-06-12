@@ -1,5 +1,8 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
+  <button @click="updateUser">
+    Atualizar perfil
+  </button>
   <HelloWorld msg="Welcome to Your Vue.js App"/>
 </template>
 
@@ -16,8 +19,19 @@ export default {
       }
     },
     created(){
+      
+    },
+  methods: {
+    updateUser() {
+      const newUser = {
+        first_name: 'Robb',
+        last_name: 'Stark',
+        email: 'robb@stark.com',
+      } 
+      this.$store.commit('storeUser', newUser)
       console.log(this.$store)
     }
+  }
 }
 </script>
 
