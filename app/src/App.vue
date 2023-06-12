@@ -1,6 +1,6 @@
 <template>
   <div>
-    <UXAlert :variant="variant" :text="text"></UXAlert> <!--Componente manipulado por CSS de escopo-->
+    <UXAlert :variant="variant" :text="text" @close="onClose()" v-if="showAlert"></UXAlert> <!--Componente manipulado por CSS de escopo-->
   </div>
 </template>
 
@@ -8,9 +8,6 @@
 import UXAlert from './components/UXAlert.vue'
 
 export default {
-  mounted(){
-    console.log(this.$slots)
-  },
   name: 'App',
   components: {
     UXAlert
@@ -18,13 +15,17 @@ export default {
   data() {
     return{
       variant: 'danger',
-      text: 'Formulário enviado'
+      text: 'Formulário enviado',
+      showAlert: true
     }
   },
 
 
   methods:{
-
+    onClose() {
+      this.showAlert = !this.showAlert
+      console.log('teste pai')
+    }
   },
 
   computed: {

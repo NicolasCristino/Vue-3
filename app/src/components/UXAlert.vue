@@ -1,6 +1,10 @@
 <template>
     <div :class="baseClass">
         {{ text }}
+
+        <button @click="onCLick()">
+            X
+        </button>
     </div>
 </template>
 
@@ -14,6 +18,12 @@ export default{
                 this.variant ? `alert-${this.variant}` : ''
             ]
         },
+    },
+    methods: {
+        onCLick(){
+            this.$emit('close')
+            console.log('tste')
+        }
     }
 }
 
@@ -21,12 +31,20 @@ export default{
 </script>
 
 <style scoped>
+
+button{
+    border: none;
+    background: none;
+    cursor: pointer;
+}
 .alert{
     background: lightgray;
     color:black;
     font-size: larger;
     margin: 10px;
     padding: 30px;
+    display: flex;
+    justify-content: space-between;
 }
 .alert-sucess{
     background: skyblue;
