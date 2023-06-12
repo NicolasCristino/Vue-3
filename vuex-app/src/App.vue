@@ -1,4 +1,5 @@
 <template>
+  {{ $store.getters.total }}
   <AppProducts />
   <br><br>
   <br><br>
@@ -6,6 +7,7 @@
   <pre>
     {{ $store.state.cart }}
   </pre>
+
   
   <br><br>
   <br><br>
