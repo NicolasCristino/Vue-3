@@ -1,13 +1,11 @@
 <template>
   <div>
-    <HelloWorld></HelloWorld> <!--Componente manipulado por CSS de escopo-->
-    <BaseCard></BaseCard> <!--Componente manipulado por CSS global em ./assets/css/style.css-->
+    <UXAlert :variant="variant" :text="text"></UXAlert> <!--Componente manipulado por CSS de escopo-->
   </div>
 </template>
 
 <script>
-import BaseCard from './components/BaseCard.vue'
-import HelloWorld from './components/HelloWorld.vue'
+import UXAlert from './components/UXAlert.vue'
 
 export default {
   mounted(){
@@ -15,12 +13,12 @@ export default {
   },
   name: 'App',
   components: {
-    BaseCard, HelloWorld
+    UXAlert
   },
   data() {
     return{
-      name: 'Robb',
-      showHeader: true,
+      variant: 'danger',
+      text: 'Formulário enviado'
     }
   },
 
