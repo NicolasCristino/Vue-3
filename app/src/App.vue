@@ -3,46 +3,48 @@
   {{ user.first_name }}
   {{ user.last_name }}
   <br><br>
-  <h5>Admin</h5>
-  {{ admin.first_name }}
-  {{ admin.last_name }}
-  <br><br>
-  <img @click="changeName" alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  {{  fullName  }}
+
+  <button @click="user.first_name = 'Sansa'">Atualizar</button>
 </template>
 
 <script>
-import { ref, reactive } from 'vue'
-import HelloWorld from './components/HelloWorld.vue';
+import { ref, computed, watch } from 'vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+
   },
   // No data() todos os componentes são reativos enquanto no setup não
   setup() {
-    const user = reactive({
+    const user = ref({
       first_name: 'Jon',
       last_name: 'Snow'
     })
 
-    const admin = ref({
-      first_name: 'Admin',
-      last_name: 'Master'
+    const fullName = computed(() => {
+      return `${user.value.first_name} ${user.value.last_name }`
     })
 
-    let name = 'Nicolas'
+    watch(user, () => { // Essa é a maneira de reagir a uma ação watch em um objeto
+      console.log('Logica cabulosa');
+    }, {
+      deep: true
+    })
+
+    watch(() => user.value.first_name, () => { // Essa é a maneira de reagir a uma ação watch em apenas um parametro do objeto
+      console.log('Logica mas só em uma');
+    }, {})
+
 
     const changeName = () => {
       alert('Chegou')
-      name = 'Felipe'
-      user.first_name = 'Sansa'
-      admin.value.first_name = 'Stark'
+      user.value.first_name = 'Sansa'
     }
 
     return {
-      name, changeName, user, admin
+      name, changeName, user, fullName
     }
   }
 }
