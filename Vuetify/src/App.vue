@@ -5,6 +5,19 @@
     </v-app-bar>
 
     <v-main>
+      <v-container>
+        <div class="ma-10 d-flex justify-space-between">
+          <div style="width: 100px; height: 100px;" class="pa-4 border rounded-lg elevation-2">
+            teste
+          </div>
+          <div style="width: 100px; height: 100px;" class="pa-4 border rounded-lg elevation-2">
+            teste
+          </div>
+          <div style="width: 100px; height: 100px;" class="pa-4 border rounded-lg elevation-2">
+            teste
+          </div>
+        </div>
+      </v-container>
       <HelloWorld />
     </v-main>
   </v-app>
