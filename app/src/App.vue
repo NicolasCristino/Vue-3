@@ -1,4 +1,8 @@
 <template>
+  <AppHook v-if="showAppHook"></AppHook>
+  <button @click="showAppHook = !showAppHook">
+    Toggle
+  </button>
   <h5>User</h5>
   {{ user.first_name }}
   {{ user.last_name }}
@@ -9,12 +13,13 @@
 </template>
 
 <script>
+import AppHook from './components/AppHook.vue'
 import { ref, computed, watch } from 'vue'
 
 export default {
   name: 'App',
   components: {
-
+    AppHook
   },
   // No data() todos os componentes são reativos enquanto no setup não
   setup() {
@@ -43,8 +48,10 @@ export default {
       user.value.first_name = 'Sansa'
     }
 
+    const showAppHook = ref(true)
+
     return {
-      name, changeName, user, fullName
+      name, changeName, user, fullName, showAppHook
     }
   }
 }
