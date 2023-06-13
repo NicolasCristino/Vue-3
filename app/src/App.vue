@@ -1,7 +1,7 @@
 <template>
   <AppProduct></AppProduct>
   {{ name }}
-  <img alt="Vue logo" src="./assets/logo.png">
+  <img @click="changeName" alt="Vue logo" src="./assets/logo.png">
   <HelloWorld msg="Welcome to Your Vue.js App"/>
 </template>
 
@@ -16,10 +16,15 @@ export default {
   },
   // No data() todos os componentes são reativos enquanto no setup não
   setup() {
-    const name = 'Nicolas'
+    let name = 'Nicolas'
+
+    const changeName = () => {
+      alert('Chegou')
+      name = 'Felipe'
+    }
 
     return {
-      name
+      name, changeName
     }
   }
 }
