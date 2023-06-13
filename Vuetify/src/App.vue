@@ -6,10 +6,11 @@
 
     <v-main>
       <v-container>
-        <h1 class="text-h5 hidden-md-and-down">Dashboard</h1>
+        <v-btn color="purple-darken-3">Enviar</v-btn>
+        <h1 class="bg-blue-darken-3 text-h5 hidden-md-and-down">Dashboard</h1>
 
         <div class="d-flex flex-column flex-md-row justify-space-between">
-          <div class="w-100 pa-4 border rounded-lg elevation-2">
+          <div class="bg-grey-lighten-2 w-100 pa-4 border rounded-lg elevation-2">
             teste
           </div>
           <div class="w-100 pa-4 border rounded-lg elevation-2">
