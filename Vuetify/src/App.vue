@@ -26,11 +26,32 @@
       <v-app-bar-nav-icon @click="isDrawerOpen = !isDrawerOpen"></v-app-bar-nav-icon>
 
       <template #append>
-        <v-btn icon class="mr-2">
-          <v-badge dot color="info">
-            <v-icon icon="mdi-bell-outline"></v-icon>
-          </v-badge>
-        </v-btn>
+        <v-menu>
+          <template #activator="{ props }">
+            <v-btn icon class="mr-2" v-bind="props">
+              <v-badge dot color="info">
+                <v-icon icon="mdi-bell-outline"></v-icon>
+              </v-badge>
+            </v-btn>
+          </template>
+
+          <v-card width="400px">
+              <v-list nav density="default" :lines="false"> 
+
+                <v-list-item append-icon="mdi-message-outline">
+                  <v-list-item-title class="text-h6 text-wrap mb-2">
+                    Bom dia
+                  </v-list-item-title>
+
+                  <v-list-item-subtitle>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt dicta aperiam, numquam voluptatibus atque assumenda 
+                  </v-list-item-subtitle>
+                </v-list-item>
+
+
+              </v-list>
+            </v-card>
+        </v-menu>
 
         <v-menu>
             <template #activator="{ props }">
@@ -60,7 +81,50 @@
 
     <v-main>
       <v-container>
-        <h2>Dashboard</h2>
+        <h2 class="mb-6">Dashboard</h2>
+
+        <v-card flat class="border mb-6">
+          <v-card-title>Últimos usuátios</v-card-title>
+          <v-table
+          >
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Cargo</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Nicolas</td>
+                <td>nickpupu@gmail.com</td>
+                <td>Analista de UX/UI</td>
+                <td>
+                  <v-btn icon="mdi-pencil" color="primary" variant="text"></v-btn>
+                </td>
+              </tr>
+              <tr>
+                <td>Gustavo</td>
+                <td>gus.delcoli@gmail.com</td>
+                <td>Desenvolvedor</td>
+                <td>
+                  <v-btn icon="mdi-pencil" color="primary" variant="text"></v-btn>
+                </td>
+              </tr>
+              <tr>
+                <td>Gabriel</td>
+                <td>email.gabriel@gmail.com</td>
+                <td>Tech Lead</td>
+                <td>
+                  <v-btn icon="mdi-pencil" color="primary" variant="text"></v-btn>
+                </td>
+              </tr>
+            </tbody>
+          </v-table>
+        </v-card>
+
+        
         <v-row>
 
           <v-col cols="12" sm="6" md="4" lg="3">
